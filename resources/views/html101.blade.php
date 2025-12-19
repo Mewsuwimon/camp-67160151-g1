@@ -1,103 +1,68 @@
+@extends('template.default')
+@section('header','File Default')
+@section('title','Workshop FORM')
+@section('content')
 
-<!Doctype html>
-<html>
-    <head>
-        <title>ส่วนหัวของ  HTML</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-<style>
-    body{
-        font-family: "Sarabun", sans-serif;
-    }
-    </style>
-    </head>
+<h1>Workshop #HTML - FORM</h1>
+<form>
 
-        <body>
-        <div class= "container mt-4">
-            <h1><b>Workshop #HTML - FORM</b></h1>
+    <!-- ชื่อ -->
+    <div class="mt-3">
+        <label>ชื่อ</label>
+        <input id="fname" class="form-control">
+        <div class="invalid-feedback">โปรดระบุชื่อ</div>
+    </div>
 
-            <from>
-                    <!--ชื่อ-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="fname">ชื่อ</label>
-                </div>
-                <div class="col">
-                    <input id="fname" class="form-control">
-                </div>
-            </div>
+    <!-- สกุล -->
+    <div class="mt-3">
+        <label>สกุล</label>
+        <input id="lname" class="form-control">
+        <div class="invalid-feedback">โปรดระบุสกุล</div>
+    </div>
 
-                    <!--สกุล-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="lname">สกุล</label>
-                </div>
-                <div class="col">
-                    <input id="lname" class="form-control">
-                </div>
-            </div>
+    <!-- วันเกิด -->
+    <div class="mt-3">
+        <label>วัน/เดือน/ปีเกิด</label>
+        <input type="date" id="bdate" class="form-control">
+        <div class="invalid-feedback">โปรดระบุวันเกิด</div>
+    </div>
 
-                    <!--วันเกิด-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="bdate">วัน/เดือน/ปีเกิด</label>
-                    </div>
-                    <div class="col">
-                        <input type="data" id="bdata" class="form-control">
-                    </div>
-                </div>
+    <!-- อายุ -->
+    <div class="mt-3">
+        <label>อายุ</label>
+        <input type="number" id="age" class="form-control">
+        <div class="invalid-feedback">โปรดระบุอายุ</div>
+    </div>
 
-                    <!--อายุ-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="age">อายุ</label>
-                    </div>
-                    <div class="col">
-                        <input type="number" id="age" class="form-control">
-                    </div>
-                </div>
-                
-                    <!--เพศ-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label>เพศ</label>
-                    </div>
-                    <div class="col">
-                        <input type="radio" name="gender">ชาย
-                        <input type="radio" name="gender" class="ms-3">หญิง
-                    </div>
-                </div>
-                
-                    <!--รูป-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label>รูป</label>
-                    </div>
-                    <div class="col">
-                        <input type="file">
-                    </div>
-                </div>
+    <!-- เพศ -->
+    <div class="mt-3">
+        <label>เพศ</label><br>
+        <input type="radio" name="gender" value="ชาย"> ชาย
+        <input type="radio" name="gender" value="หญิง" class="ms-3"> หญิง
+        <div id="genderError" class="text-danger mt-1" style="display:none;">
+            โปรดเลือกเพศ
+        </div>
+    </div>
 
-                    <!--ที่อยู่-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label form="address">ที่อยู่</label>
-                    </div>
-                    <div class="col">
-                        <textarea id="address" class="form-control" rows="4"></textarea>
-                    </div>
-                </div>
+    <!-- รูป -->
+    <div class="mt-3">
+        <label>รูป</label>
+        <input type="file" class="form-control">
+    </div>
 
-                    <!--สีที่ชอบ-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="color">สีที่ชอบ</label>
-                    </div>
-                    <div class="col">
-                        <select id="color" class="form-control" style="width: 150px;">
-                            <option>สีแดง</option>
+    <!-- ที่อยู่ -->
+    <div class="mt-3">
+        <label>ที่อยู่</label>
+        <textarea id="address" class="form-control" rows="3"></textarea>
+        <div class="invalid-feedback">โปรดระบุที่อยู่</div>
+    </div>
+
+    <!-- สีที่ชอบ -->
+    <div class="mt-3">
+        <label>สีที่ชอบ</label>
+        <select id="color" class="form-control" style="width:200px;">
+            <option value="">-- เลือกสี --</option>
+            <option>สีแดง</option>
                             <option>สีฟ้า</option>
                             <option>สีน้ำเงิน</option>
                             <option>สีเขียว</option>
@@ -109,45 +74,117 @@
                             <option>สีม่วง</option>
                             <option>สีน้ำตาล</option>
                             <option>สีเทา</option>
-                        </select>
-                    </div>
-                </div>
 
-                    <!--แนวเพลง-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                        <label for="color">แนวเพลงที่ชอบ</label>
-                    </div>
-                    <div class="col">
-                        <input type="radio" name="music">เพื่อชีวิต
-                        <input type="radio" name="music" class="ms-3">ลูกทุ่ง
-                        <input type="radio" name="music" class="ms-3">อื่นๆ
-                    </div>
-                </div>
+        </select>
+        <div class="invalid-feedback">โปรดเลือกสีที่ชอบ</div>
+    </div>
 
-                    <!--ยินยอม-->
-                <div class="row mt-3">
-                    <div class="col-sm-12 col-md-4">
-                    </div>
-                    <div class="col">
-                        <input type="checkbox">ยินยอมให้เก็บข้อมูล
-                    </div>
-                </div>
+    <!-- แนวเพลง -->
+    <div class="mt-3">
+        <label>แนวเพลงที่ชอบ</label><br>
+        <input type="radio" name="music" value="เพื่อชีวิต"> เพื่อชีวิต
+        <input type="radio" name="music" value="ลูกทุ่ง" class="ms-3"> ลูกทุ่ง
+        <input type="radio" name="music" value="อื่นๆ" class="ms-3"> อื่นๆ
+        <div id="musicError" class="text-danger mt-1" style="display:none;">
+            โปรดเลือกแนวเพลงที่ชอบ
+        </div>
+    </div>
 
-                <!--ปุ่ม-->
-            <div class="row mt-4">
-                <div class="col-sm-12 col-md-4"></div>
-                <div class="col">
-                    <button type="reset" class="btn" style="background-color: white; color: black; border: 1px solid black;">
-                        Reset
-                    </button>
-                    <button type="submit" class="btn" style="background-color: green;color:white">
-                        Submit
-                    </button>
-                </div>
-            </div>
-            </from>
+    <!-- ยินยอม -->
+    <div class="mt-3">
+        <input type="checkbox" id="agree"> ยินยอมให้เก็บข้อมูล
+        <div id="agreeError" class="text-danger mt-1" style="display:none;">
+            กรุณายินยอมให้เก็บข้อมูล
+        </div>
+    </div>
 
-        </dib>
-        </body>
-</html>
+    <!-- ปุ่ม -->
+    <div class="mt-4">
+        <button type="reset" class="btn btn-outline-dark">Reset</button>
+        <button type="button" class="btn btn-success" onclick="clickMe()">Submit</button>
+    </div>
+
+</form>
+@endsection
+
+@push('scripts')
+<script>
+let clickMe = function () {
+
+    let pass = true;
+
+    // ชื่อ
+    let fname = document.getElementById('fname');
+    if (fname.value == "") {
+        fname.classList.add('is-invalid');
+        pass = false;
+    } else {
+        fname.classList.remove('is-invalid');
+    }
+
+    // สกุล
+    let lname = document.getElementById('lname');
+    if (lname.value == "") {
+        lname.classList.add('is-invalid');
+        pass = false;
+    } else {
+        lname.classList.remove('is-invalid');
+    }
+
+    // วันเกิด
+    let bdate = document.getElementById('bdate');
+    if (bdate.value == "") {
+        bdate.classList.add('is-invalid');
+        pass = false;
+    } else {
+        bdate.classList.remove('is-invalid');
+    }
+
+    // อายุ
+    let age = document.getElementById('age');
+    if (age.value == "" || age.value <= 0) {
+        age.classList.add('is-invalid');
+        pass = false;
+    } else {
+        age.classList.remove('is-invalid');
+    }
+
+    // เพศ
+    let gender = document.querySelector('input[name="gender"]:checked');
+    document.getElementById('genderError').style.display = gender ? "none" : "block";
+    if (!gender) pass = false;
+
+    // ที่อยู่
+    let address = document.getElementById('address');
+    if (address.value == "") {
+        address.classList.add('is-invalid');
+        pass = false;
+    } else {
+        address.classList.remove('is-invalid');
+    }
+
+    // สี
+    let color = document.getElementById('color');
+    if (color.value == "") {
+        color.classList.add('is-invalid');
+        pass = false;
+    } else {
+        color.classList.remove('is-invalid');
+    }
+
+    // แนวเพลง
+    let music = document.querySelector('input[name="music"]:checked');
+    document.getElementById('musicError').style.display = music ? "none" : "block";
+    if (!music) pass = false;
+
+    // ยินยอม
+    let agree = document.getElementById('agree');
+    document.getElementById('agreeError').style.display = agree.checked ? "none" : "block";
+    if (!agree.checked) pass = false;
+
+    if (pass) {
+        alert("ข้อมูลถูกต้องครบถ้วน ✅");
+    }
+}
+</script>
+@endpush
