@@ -4,33 +4,35 @@
 @section('content')
 
 <h1>Workshop #HTML - FORM</h1>
-<form>
+
+<form id="myForm" method="post" enctype="multipart/form-data">
+    @csrf
 
     <!-- ชื่อ -->
     <div class="mt-3">
         <label>ชื่อ</label>
-        <input id="fname" class="form-control">
+        <input id="fname" name="fname" class="form-control">
         <div class="invalid-feedback">โปรดระบุชื่อ</div>
     </div>
 
     <!-- สกุล -->
     <div class="mt-3">
         <label>สกุล</label>
-        <input id="lname" class="form-control">
+        <input id="lname" name="lname" class="form-control">
         <div class="invalid-feedback">โปรดระบุสกุล</div>
     </div>
 
     <!-- วันเกิด -->
     <div class="mt-3">
         <label>วัน/เดือน/ปีเกิด</label>
-        <input type="date" id="bdate" class="form-control">
+        <input type="date" id="bdate" name="bdate" class="form-control">
         <div class="invalid-feedback">โปรดระบุวันเกิด</div>
     </div>
 
     <!-- อายุ -->
     <div class="mt-3">
         <label>อายุ</label>
-        <input type="number" id="age" class="form-control">
+        <input type="number" id="age" name="age" class="form-control">
         <div class="invalid-feedback">โปรดระบุอายุ</div>
     </div>
 
@@ -47,34 +49,33 @@
     <!-- รูป -->
     <div class="mt-3">
         <label>รูป</label>
-        <input type="file" class="form-control">
+        <input type="file" name="photo" class="form-control">
     </div>
 
     <!-- ที่อยู่ -->
     <div class="mt-3">
         <label>ที่อยู่</label>
-        <textarea id="address" class="form-control" rows="3"></textarea>
+        <textarea id="address" name="address" class="form-control" rows="3"></textarea>
         <div class="invalid-feedback">โปรดระบุที่อยู่</div>
     </div>
 
     <!-- สีที่ชอบ -->
     <div class="mt-3">
         <label>สีที่ชอบ</label>
-        <select id="color" class="form-control" style="width:200px;">
+        <select id="color" name="color" class="form-control" style="width:200px;">
             <option value="">-- เลือกสี --</option>
             <option>สีแดง</option>
-                            <option>สีฟ้า</option>
-                            <option>สีน้ำเงิน</option>
-                            <option>สีเขียว</option>
-                            <option>สีเหลือง</option>
-                            <option>สีดำ</option>
-                            <option>สีขาว</option>
-                            <option>สีชมพู</option>
-                            <option>สีส้ม</option>
-                            <option>สีม่วง</option>
-                            <option>สีน้ำตาล</option>
-                            <option>สีเทา</option>
-
+            <option>สีฟ้า</option>
+            <option>สีน้ำเงิน</option>
+            <option>สีเขียว</option>
+            <option>สีเหลือง</option>
+            <option>สีดำ</option>
+            <option>สีขาว</option>
+            <option>สีชมพู</option>
+            <option>สีส้ม</option>
+            <option>สีม่วง</option>
+            <option>สีน้ำตาล</option>
+            <option>สีเทา</option>
         </select>
         <div class="invalid-feedback">โปรดเลือกสีที่ชอบ</div>
     </div>
@@ -92,7 +93,8 @@
 
     <!-- ยินยอม -->
     <div class="mt-3">
-        <input type="checkbox" id="agree"> ยินยอมให้เก็บข้อมูล
+        <input type="checkbox" id="agree" name="agree" value="1">
+        ยินยอมให้เก็บข้อมูล
         <div id="agreeError" class="text-danger mt-1" style="display:none;">
             กรุณายินยอมให้เก็บข้อมูล
         </div>
@@ -113,77 +115,56 @@ let clickMe = function () {
 
     let pass = true;
 
-    // ชื่อ
     let fname = document.getElementById('fname');
     if (fname.value == "") {
         fname.classList.add('is-invalid');
         pass = false;
-    } else {
-        fname.classList.remove('is-invalid');
-    }
+    } else fname.classList.remove('is-invalid');
 
-    // สกุล
     let lname = document.getElementById('lname');
     if (lname.value == "") {
         lname.classList.add('is-invalid');
         pass = false;
-    } else {
-        lname.classList.remove('is-invalid');
-    }
+    } else lname.classList.remove('is-invalid');
 
-    // วันเกิด
     let bdate = document.getElementById('bdate');
     if (bdate.value == "") {
         bdate.classList.add('is-invalid');
         pass = false;
-    } else {
-        bdate.classList.remove('is-invalid');
-    }
+    } else bdate.classList.remove('is-invalid');
 
-    // อายุ
     let age = document.getElementById('age');
     if (age.value == "" || age.value <= 0) {
         age.classList.add('is-invalid');
         pass = false;
-    } else {
-        age.classList.remove('is-invalid');
-    }
+    } else age.classList.remove('is-invalid');
 
-    // เพศ
     let gender = document.querySelector('input[name="gender"]:checked');
     document.getElementById('genderError').style.display = gender ? "none" : "block";
     if (!gender) pass = false;
 
-    // ที่อยู่
     let address = document.getElementById('address');
     if (address.value == "") {
         address.classList.add('is-invalid');
         pass = false;
-    } else {
-        address.classList.remove('is-invalid');
-    }
+    } else address.classList.remove('is-invalid');
 
-    // สี
     let color = document.getElementById('color');
     if (color.value == "") {
         color.classList.add('is-invalid');
         pass = false;
-    } else {
-        color.classList.remove('is-invalid');
-    }
+    } else color.classList.remove('is-invalid');
 
-    // แนวเพลง
     let music = document.querySelector('input[name="music"]:checked');
     document.getElementById('musicError').style.display = music ? "none" : "block";
     if (!music) pass = false;
 
-    // ยินยอม
     let agree = document.getElementById('agree');
     document.getElementById('agreeError').style.display = agree.checked ? "none" : "block";
     if (!agree.checked) pass = false;
 
     if (pass) {
-        alert("ข้อมูลถูกต้องครบถ้วน ✅");
+        document.getElementById('myForm').submit();
     }
 }
 </script>

@@ -1,0 +1,10 @@
+@extends('template.default')
+@section('header','ตารางแม่สูตรคูณ')
+@section('content')
+<form action = "/calculate" method="post">
+    @csrf
+    <input class="form-control" name="mynumber" type="number">
+    <br>
+    <button class="btn btn-success">บันทึก</button>
+</form>
+@endsection
