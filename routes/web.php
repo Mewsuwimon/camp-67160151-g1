@@ -17,3 +17,5 @@ Route::get('/se', function () {
     Route::get('/', [App\Http\Controllers\MyController::class, 'index']);
     Route::post('/', [App\Http\Controllers\MyController::class, 'store']);
 
+    Route::resource('/flights', App\Http\Controllers\FlightController::class);
+    Route::resource('/pokedexs',App\Http\Controllers\PokedexController::class);
