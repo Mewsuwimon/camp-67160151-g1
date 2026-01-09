@@ -16,11 +16,11 @@ return new class extends Migration
         $table->string('name');
         $table->string('type');
         $table->string('species');
-        $table->integer('height');
-        $table->integer('weight');
-        $table->double('hp');
-        $table->double('attack');
-        $table->double('defense');
+        $table->decimal('height', 5, 1);
+        $table->decimal('weight',5,1);
+        $table->decimal('hp',5,1);
+        $table->decimal('attack',5,1);
+        $table->decimal('defense',5,1);
         $table->string('image_url');
         $table->timestamps();
     });

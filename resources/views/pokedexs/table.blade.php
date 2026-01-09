@@ -1,21 +1,22 @@
-<h1>Pokedex Lists</h1>
+<h1 style="color:#2A75BB;font-weight:bold;"> Pokedex Lists</h1>
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
-            <td>id</td>
-            <td>name</td>
-            <td>type</td>
-            <td>species</td>
-            <td>height</td>
-            <td>weight</td>
-            <td>hp</td>
-            <td>attack</td>
-            <td>defense</td>
-            <td>image</td>
-            <td></td>
+            <th>id</th>
+            <th>name</th>
+            <th>type</th>
+            <th>species</th>
+            <th>height</th>
+            <th>weight</th>
+            <th>hp</th>
+            <th>attack</th>
+            <th>defense</th>
+            <th>image</th>
+            <th>จัดการ</th>
         </tr>
     </thead>
+
 
     <?php foreach($pokedexs as $item) { ?>
     <tr>

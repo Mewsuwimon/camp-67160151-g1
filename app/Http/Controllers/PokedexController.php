@@ -13,10 +13,6 @@ class PokedexController extends Controller
         return view('pokedexs.index', $data);
     }
 
-    public function create()
-    {
-        return view('pokedexs.create');
-    }
 
     public function store(Request $request)
     {
@@ -26,9 +22,9 @@ class PokedexController extends Controller
             'species' => 'required|string|max:100',
             'height' => 'required|numeric|min:0',
             'weight' => 'required|numeric|min:0',
-            'hp' => 'required|integer|min:0',
-            'attack' => 'required|integer|min:0',
-            'defense' => 'required|integer|min:0',
+            'hp' => 'required|numeric|min:0',
+            'attack' => 'required|numeric|min:0',
+            'defense' => 'required|numeric|min:0',
             'image_url' => 'required|url',
         ]);
 
@@ -47,6 +43,7 @@ class PokedexController extends Controller
     public function edit(string $id)
     {
         $data['pokedex'] = Pokedex::findOrFail($id);
+        $data['pokedexs'] = Pokedex::all();
         return view('pokedexs.edit', $data);
     }
 
@@ -58,9 +55,9 @@ class PokedexController extends Controller
             'species' => 'required|string|max:100',
             'height' => 'required|numeric|min:0',
             'weight' => 'required|numeric|min:0',
-            'hp' => 'required|integer|min:0',
-            'attack' => 'required|integer|min:0',
-            'defense' => 'required|integer|min:0',
+            'hp' => 'required|numeric|min:0',
+            'attack' => 'required|numeric|min:0',
+            'defense' => 'required|numeric|min:0',
             'image_url' => 'required|url',
         ]);
 

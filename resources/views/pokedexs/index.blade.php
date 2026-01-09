@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Pokedex Create</h1>
+<h1 style="color: #013d9e;font-weight:bold;">Pokedex Create</h1>
 
 <form action="{{ url('/pokedexs') }}" method="post">
     @csrf
@@ -14,9 +14,9 @@
     <label>Species</label>
     <input class="form-control" type="text" name="species">
     <label>Height</label>
-    <input class="form-control" type="number" name="height">
+    <input class="form-control" type="number" step="0.01" name="height">
     <label>Weight</label>
-    <input class="form-control" type="number" name="weight">
+    <input class="form-control" type="number" step="0.01" name="weight">
     <label>HP</label>
     <input class="form-control" type="number" step="0.01" name="hp">
     <label>Attack</label>

@@ -19,8 +19,8 @@
     </style>
     @stack('styles')
 </head>
-<body>
-        <div class="container mt-4">
+<body style="background: linear-gradient(180deg,#DBEAFE,#F8FAFC);">
+            <div class="container mt-4">
         <h1>@yield('header')</h1>
             @yield('content')
         </div>

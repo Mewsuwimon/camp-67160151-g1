@@ -2,11 +2,13 @@
 
 @section('content')
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-4 ">
     <div class="col-md-6">
 
-        <div class="card shadow-sm">
-            <div class="card-body text-center">
+        <div class="card shadow-lg border-0 rounded-4"
+            style="background: linear-gradient(180deg,#F8FAFC,#EFF6FF);">
+
+            <div class="card-body text-center p-4">
 
                 <h1 class="mb-3">{{ $pokedex->name }}</h1>
 
@@ -34,7 +36,7 @@
                 <p><strong>Attack:</strong> {{ $pokedex->attack }}</p>
                 <p><strong>Defense:</strong> {{ $pokedex->defense }}</p>
 
-                <a href="{{ url('/pokedexs') }}" class="btn btn-secondary mt-3">
+                <a href="{{ url('/pokedexs') }}" class="btn btn-success mt-3">
                     ← กลับไปหน้ารายการ
                 </a>
 

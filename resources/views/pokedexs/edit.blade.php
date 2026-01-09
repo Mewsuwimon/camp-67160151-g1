@@ -1,46 +1,39 @@
-<h1>แก้ไขข้อมูล Pokémon</h1>
+@extends('template.default')
+@section('content')
 
-<form action="{{ url('/pokedexs/' . $pokedex->id) }}" method="post">
+<h1 style="color: #22C55E;font-weight:bold;">Pokedex Update</h1>
+
+<form action="{{ url('/pokedexs/'.$pokedex->id) }}" method="post">
     @csrf
-    @method('put')
+    @method('PUT')
 
-    <input class="form-control mb-2" name="name" value="{{ old('name', $pokedex->name) }}">
-
-    <input class="form-control mb-2" name="type" value="{{ old('type', $pokedex->type) }}">
-
-    <input class="form-control mb-2" name="species" value="{{ old('species', $pokedex->species) }}">
-
-    <input class="form-control mb-2"
-        type="number"
-        step="0.01"
-        name="height"
-        value="{{ old('height', $pokedex->height) }}">
-
-    <input class="form-control mb-2"
-        type="number"
-        step="0.01"
-        name="weight"
-        value="{{ old('weight', $pokedex->weight) }}">
-
-    <input class="form-control mb-2"
-        type="number"
-        name="hp"
-        value="{{ old('hp', $pokedex->hp) }}">
-
-    <input class="form-control mb-2"
-        type="number"
-        name="attack"
-        value="{{ old('attack', $pokedex->attack) }}">
-
-    <input class="form-control mb-2"
-        type="number"
-        name="defense"
-        value="{{ old('defense', $pokedex->defense) }}">
-
-    <input class="form-control mb-2"
-        type="url"
-        name="image_url"
-        value="{{ old('image_url', $pokedex->image_url) }}">
-
-    <button class="btn btn-primary">อัปเดต</button>
+    <label>Name</label>
+    <input class="form-control" name="name" value="{{ $pokedex->name }}">
+    <label>Type</label>
+    <input class="form-control" name="type" value="{{ $pokedex->type }}">
+    <label>Species</label>
+    <input class="form-control" name="species" value="{{ $pokedex->species }}">
+    <label>Height</label>
+    <input class="form-control" type="number" step="0.1"
+        name="height" value="{{ $pokedex->height }}">
+    <label>Weight</label>
+    <input class="form-control" type="number" step="0.1"
+        name="weight" value="{{ $pokedex->weight }}">
+    <label>HP</label>
+    <input class="form-control" type="number" name="hp"
+        value="{{ $pokedex->hp }}">
+    <label>Attack</label>
+    <input class="form-control" type="number" name="attack"
+        value="{{ $pokedex->attack }}">
+    <label>Defense</label>
+    <input class="form-control" type="number" name="defense"
+        value="{{ $pokedex->defense }}">
+    <label>Image URL</label>
+    <input class="form-control" type="url" name="image_url"
+        value="{{ $pokedex->image_url }}">
+    <button class="btn btn-success mt-2">บันทึก</button>
 </form>
+
+@include('pokedexs.table')
+
+@endsection
